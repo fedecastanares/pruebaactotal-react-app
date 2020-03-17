@@ -1,25 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React , {Fragment} from 'react';
+import Imagen from './components/logo.js';
+import Formulario from './components/formulario.js';
+import ListadeDatos from './components/listaDatos.js'
+import UsuariosProvider from './context/UsuariosContext.js'
+
+import {Grid , Container} from '@material-ui/core';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <Container>
+      <Imagen/>
+      <div className='margen'>
+      <UsuariosProvider>
+        <Grid container 
+          justify='space-between'>
+            <Formulario/>
+            <ListadeDatos/>
+        </Grid>
+        </UsuariosProvider>
+      </div>
+      </Container>
+    </Fragment>
   );
 }
 
